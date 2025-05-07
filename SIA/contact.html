@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Chelys Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us using the form below or via our contact details.</p>
+
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <form action="#" method="post" class="contact-form">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <!-- Contact Details -->
+            <div class="contact-info">
+                <h3>Our Contact Details</h3>
+                <p><strong>Email:</strong> support:chelysluxury.com</p>
+                <p><strong>Phone:</strong> +63 (9511474781)</p>
+                <p><strong>Address:</strong> zone 6 Oas Albay</p>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+            <h3>Follow Us</h3>
+             <p> 
+ <a href="https://www.facebook.com/cherly.luxury.timepiece" target="_blank" rel="noopener noreferrer">
+    Visit Us on Facebook
+</a>
+                
+        <button onclick="goBack()" class="back-button">&#8592; Back</button>
+    </footer>
+    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
