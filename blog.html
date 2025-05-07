@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chelys Collection - Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Content Section -->
+        <section class="content">
+            <h2>Visit Our Blog</h2>
+            <br> </br>
+            <div id="blog-home">
+                <p>Loading latest blog posts...</p>
+            </div>
+            <a href="https://cherlyluxury.blogspot.com/" target="_blank" class="visit-blog">See All Blog Posts</a>
+        </section>
+    <footer>
+        <button onclick="goBack()" class="back-button">&#8592; Back</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        async function fetchBlogPreview() {
+            try {
+                let response = await fetch("https://cherlyluxury.blogspot.com/feeds/posts/default?alt=json");
+                let data = await response.json();
+                let posts = data.feed.entry;
+                let output = "";
+    
+                posts.forEach((post, index) => {
+                    if (index < 2) { // Show only the latest 2 posts
+                        let title = post.title.$t;
+                        let link = post.link.find(l => l.rel === "alternate").href;
+                        let summary = post.content.$t.replace(/<[^>]*>?/gm, '').substring(0, 100) + "..."; // Short summary
+    
+                        output += `
+                            <article class="blog-post">
+                                <h3>${title}</h3>
+                                <p>${summary}</p>
+                                <a href="${link}" target="_blank" class="read-more">Read More</a>
+                            </article>
+                        `;
+                    }
+                });
+    
+                document.getElementById("blog-home").innerHTML = output;
+            } catch (error) {
+                document.getElementById("blog-home").innerHTML = "<p>Failed to load blog posts. Visit our <a href='https://cherlyluxury.blogspot.com/' target='_blank'>blog</a>.</p>";
+            }
+        }
+    
+        fetchBlogPreview();
+    </script>
+</body>
+</html>

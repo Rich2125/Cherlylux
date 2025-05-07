@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Chelys Luxury Timepiece</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h3>Frequently Asked Questions</h3>
+  <section class="faq-container">
+      <p class="faq-intro">Below you'll find answers to the most common questions about our watches.</p>
+      
+      <div class="faq-item">
+          <button class="faq-question">What materials are used in Chelys watches? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+              <p>Our watches are crafted using high-quality stainless steel, sapphire crystal glass, and premium leather or metal straps.</p>
+          </div>
+      </div>
+
+      <div class="faq-item">
+          <button class="faq-question">Do your watches come with a warranty? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+              <p>Yes, all Chelys Collection watches come with a 2-year limited warranty covering manufacturing defects.</p>
+          </div>
+      </div>
+
+      <div class="faq-item">
+          <button class="faq-question">How can I place an order? <span class="faq-icon">+</span></button>
+          <div class="faq-answer">
+              <p>You can order directly from our website by adding your preferred watch to the cart and proceeding to checkout.</p>
+          </div>
+      </div>
+  </section>
+
+  <footer>
+    <button onclick="goBack()" class="back-button">&#8592; Back</button>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // JavaScript to toggle the FAQ answer visibility
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        // Toggle the active class on the clicked question
+        button.classList.toggle('active');
+        
+        // Toggle the display of the answer
+        const answer = button.nextElementSibling;
+        if (answer.style.display === 'block') {
+          answer.style.display = 'none';
+        } else {
+          answer.style.display = 'block';
+        }
+      });
+    });
+
+    function goBack() {
+        window.history.back();
+    }
+  </script>
+</body>
+</html>
